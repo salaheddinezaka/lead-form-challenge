@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { above } from "../utils/media-queries-utils"
+import styled from 'styled-components'
+import { above, below } from '../utils/media-queries-utils'
 
 export const Wrapper = styled.div`
   min-height: calc(100vh - 90px);
@@ -110,4 +110,57 @@ export const Testimonial = styled.div`
     bottom: -5px;
     right: 8px;
   }
+`
+
+export const InputsGroup = styled.div`
+  display: flex;
+  align-items: center;
+  ${(props) =>
+    props.isAddress
+      ? 'justify-content: center;'
+      : 'justify-content: space-between;'}
+  ${({ isPhone }) => (isPhone ? 'gap: 5px;' : 'gap: 30px;')}
+  padding: 30px 0px;
+  ${({ isPhone }) =>
+    isPhone ? 'flex-direction: row;' : 'flex-direction: column;'}
+  width: 350px;
+  margin: 0 auto;
+  ${above.small`
+    flex-direction: row;
+    width: 610px;
+  `}
+
+  input {
+    ${(props) =>
+      props.isAddress
+        ? 'width: calc(100% - 250px);'
+        : 'width: calc(100% - 25px);'}
+    border-radius: 10px;
+    height: 45px;
+    font-size: 15px;
+    padding: 4px 10px;
+    font-family: Montserrat;
+    font-weight: normal;
+    color: #555555;
+    outline: none;
+    text-align: center;
+    border: 2px solid #9a9ba7;
+    ${(props) =>
+      props.isAddress &&
+      'background: url(https://cdn.lowermybills.com/lending-images/toplenderrates/locationImg.png) no-repeat scroll 15px 9px;'}
+    background-color: #fff;
+    ${({ hasError }) => hasError && 'border-color: red;'}
+    ${below.small`
+      width: -webkit-fill-available;
+    `}
+  }
+`
+export const ErrorMessage = styled.p`
+  font-size: 12px;
+  font-family: Montserrat;
+  color: red;
+  margin: 0px;
+  ${below.small`
+    text-align: center;
+  `}
 `

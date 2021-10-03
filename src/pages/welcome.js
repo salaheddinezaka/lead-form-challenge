@@ -1,16 +1,19 @@
 import ContinueButton from '../components/continue-button'
-import { QuestionContainer, Testimonial, Wrapper } from '../components/styled-components'
+import {
+  QuestionContainer,
+  Testimonial,
+  Wrapper
+} from '../components/styled-components'
+import { useLeadFormUtils } from '../utils/useLeadFormUtils'
 
 export default function WelcomePage() {
-  const moveNextStep = () => {
-
-  }
+  const { nextStep } = useLeadFormUtils()
   return (
     <Wrapper>
       <QuestionContainer>
         Today's refinance rates are as low as APR*!
       </QuestionContainer>
-      <ContinueButton onClick={moveNextStep} />
+      <ContinueButton onClick={nextStep} />
       <Testimonial>
         <div className="left-border" />
         <div className="testimonial">

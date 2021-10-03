@@ -1,4 +1,6 @@
+import FullNameCapture from '../pages/full-name'
 import WelcomePage from '../pages/welcome'
+import { addNewError, moveBackStep, moveNextStep, valueChanged } from '../state/actions'
 import { useLeadContext } from '../state/context'
 
 export const useLeadFormUtils = () => {
@@ -7,18 +9,19 @@ export const useLeadFormUtils = () => {
     dispatch
   } = useLeadContext()
 
-  const addError = (key, message) => dispatch(addNewError(key, message))
-  const nextStep = () => dispatch(moveNextStep())
-  const backStep = () => dispatch(moveBackStep())
-  const changeValue = (key, value) => dispatch(valueChanged(key, value))
-
   const getCurrentComponent = () => {
     switch (currentStep) {
       case 0:
         return <WelcomePage />
+      case 1:
+        return <FullNameCapture />
       default:
     }
   }
+  const addError = (key, message) => dispatch(addNewError(key, message))
+  const nextStep = () => dispatch(moveNextStep())
+  const backStep = () => dispatch(moveBackStep())
+  const changeValue = (key, value) => dispatch(valueChanged(key, value))
 
   return { getCurrentComponent, nextStep, changeValue, addError, backStep }
 }

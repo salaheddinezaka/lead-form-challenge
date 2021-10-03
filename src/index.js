@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import WelcomePage from './pages/welcome'
+import { LeadForm } from './pages/lead-form'
 import reportWebVitals from './reportWebVitals'
 import './reset.css'
 import { MortgageLeadProvider } from './state/context'
@@ -8,7 +8,7 @@ import { MortgageLeadProvider } from './state/context'
 ReactDOM.render(
   <React.StrictMode>
     <MortgageLeadProvider>
-      <WelcomePage />
+      <LeadForm />
     </MortgageLeadProvider>
   </React.StrictMode>,
   document.getElementById('root')
