@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom'
 import WelcomePage from './pages/welcome'
 import reportWebVitals from './reportWebVitals'
 import './reset.css'
+import { MortgageLeadProvider } from './state/context'
 
 ReactDOM.render(
   <React.StrictMode>
-    <WelcomePage />
+    <MortgageLeadProvider>
+      <WelcomePage />
+    </MortgageLeadProvider>
   </React.StrictMode>,
   document.getElementById('root')
 )
