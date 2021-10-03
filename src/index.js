@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import WelcomePage from './pages/welcome'
 import reportWebVitals from './reportWebVitals'
+import './reset.css'
 
 ReactDOM.render(
   <React.StrictMode>
